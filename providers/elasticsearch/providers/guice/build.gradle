@@ -1,0 +1,12 @@
+group = 'com.walterjwhite.modules.index.providers'
+description = 'index - providers - elasticsearch'
+dependencies {
+  compile project(':infrastructure:datastore:modules:google-guice-persist-criteria-builder')
+  compile project(':infrastructure:dependencies:elasticsearch')
+  compile project(':infrastructure:datastore:modules:google-guice-guava-jpa-event-listener')
+  compile project(':infrastructure:datastore:api:service')
+  compile project(':infrastructure:datastore:modules:jackson-databind')
+  compile project(':infrastructure:datastore:api:model')
+  compile project(':infrastructure:dependencies:h2')
+  runtime project(':infrastructure:datastore:modules:queue:impl')
+}

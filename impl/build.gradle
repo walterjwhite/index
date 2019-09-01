@@ -1,0 +1,5 @@
+group = 'com.walterjwhite.modules.index'
+description = 'index - impl'
+dependencies {
+  compile project(':infrastructure:datastore:api:service')
+}

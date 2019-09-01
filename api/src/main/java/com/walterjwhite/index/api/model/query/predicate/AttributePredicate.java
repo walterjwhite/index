@@ -3,9 +3,13 @@ package com.walterjwhite.index.api.model.query.predicate;
 import com.walterjwhite.index.api.model.query.FieldType;
 import com.walterjwhite.index.api.model.query.MatchType;
 import java.io.Serializable;
-import java.util.Objects;
 import javax.persistence.*;
+import lombok.Data;
+import lombok.ToString;
 
+@Data
+@ToString(doNotUseGetters = true)
+// @PersistenceCapable
 @Entity
 public class AttributePredicate extends Predicate {
   @Enumerated(EnumType.STRING)
@@ -43,59 +47,5 @@ public class AttributePredicate extends Predicate {
     this.matchType = matchType;
     this.attributePath = attributePath;
     this.argument = argument;
-  }
-
-  public AttributePredicate() {
-    super();
-  }
-
-  public FieldType getFieldType() {
-    return fieldType;
-  }
-
-  public void setFieldType(FieldType fieldType) {
-    this.fieldType = fieldType;
-  }
-
-  public MatchType getMatchType() {
-    return matchType;
-  }
-
-  public void setMatchType(MatchType matchType) {
-    this.matchType = matchType;
-  }
-
-  public String getAttributePath() {
-    return attributePath;
-  }
-
-  public void setAttributePath(String attributePath) {
-    this.attributePath = attributePath;
-  }
-
-  public Serializable getArgument() {
-    return argument;
-  }
-
-  public void setArgument(Serializable argument) {
-    this.argument = argument;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    AttributePredicate that = (AttributePredicate) o;
-    return fieldType == that.fieldType
-        && matchType == that.matchType
-        && Objects.equals(attributePath, that.attributePath)
-        && Objects.equals(argument, that.argument);
-  }
-
-  @Override
-  public int hashCode() {
-
-    return Objects.hash(super.hashCode(), fieldType, matchType, attributePath, argument);
   }
 }

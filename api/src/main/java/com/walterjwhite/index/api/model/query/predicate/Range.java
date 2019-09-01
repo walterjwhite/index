@@ -1,33 +1,16 @@
 package com.walterjwhite.index.api.model.query.predicate;
 
-public class Range {
+import com.walterjwhite.datastore.api.model.entity.AbstractEntity;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@ToString(doNotUseGetters = true)
+public class Range extends AbstractEntity {
   protected Number low;
   protected Number high;
-
-  public Range(Number low, Number high) {
-    super();
-
-    this.low = low;
-    this.high = high;
-  }
-
-  public Range() {
-    super();
-  }
-
-  public Number getLow() {
-    return low;
-  }
-
-  public void setLow(Number low) {
-    this.low = low;
-  }
-
-  public Number getHigh() {
-    return high;
-  }
-
-  public void setHigh(Number high) {
-    this.high = high;
-  }
 }

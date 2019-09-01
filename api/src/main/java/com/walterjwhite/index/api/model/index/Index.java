@@ -6,27 +6,22 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import lombok.*;
 
 /** 2 types: 1. Entity 2. CSV file */
+@Getter
+@Setter
+@ToString(doNotUseGetters = true, callSuper = true)
+// @PersistenceCapable
+@NoArgsConstructor
 @Entity
 public class Index extends AbstractNamedEntity {
+  @EqualsAndHashCode.Exclude
   //  protected final String entityType;
   @OneToMany(mappedBy = "index", cascade = CascadeType.ALL)
   protected List<IndexEntityType> indexEntityTypes = new ArrayList<>();
 
   public Index(String name) {
     super(name);
-  }
-
-  public Index() {
-    super();
-  }
-
-  public List<IndexEntityType> getIndexEntityTypes() {
-    return indexEntityTypes;
-  }
-
-  public void setIndexEntityTypes(List<IndexEntityType> indexEntityTypes) {
-    this.indexEntityTypes = indexEntityTypes;
   }
 }

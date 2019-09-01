@@ -3,9 +3,15 @@ package com.walterjwhite.index.api.model.query.predicate;
 import com.walterjwhite.index.api.model.query.Conjunction;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import javax.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+@Data
+@ToString(doNotUseGetters = true)
+// @PersistenceCapable
+@NoArgsConstructor
 @Entity
 public class GroupPredicate extends Predicate {
   @Column(nullable = false, updatable = false)
@@ -19,42 +25,5 @@ public class GroupPredicate extends Predicate {
     super(invert);
 
     this.conjunction = conjunction;
-  }
-
-  public GroupPredicate() {
-    super();
-  }
-
-  public Conjunction getConjunction() {
-    return conjunction;
-  }
-
-  public void setConjunction(Conjunction conjunction) {
-    this.conjunction = conjunction;
-  }
-
-  public List<Predicate> getChildrenPredicates() {
-    return childrenPredicates;
-  }
-
-  public void setChildrenPredicates(List<Predicate> childrenPredicates) {
-    this.childrenPredicates.clear();
-    this.childrenPredicates.addAll(childrenPredicates);
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    GroupPredicate that = (GroupPredicate) o;
-    return conjunction == that.conjunction
-        && Objects.equals(childrenPredicates, that.childrenPredicates);
-  }
-
-  @Override
-  public int hashCode() {
-
-    return Objects.hash(super.hashCode(), conjunction, childrenPredicates);
   }
 }
