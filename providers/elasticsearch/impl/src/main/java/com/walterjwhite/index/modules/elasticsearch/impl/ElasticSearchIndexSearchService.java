@@ -25,12 +25,7 @@ public class ElasticSearchIndexSearchService extends AbstractIndexSearchService 
     this.repositoryProvider = repositoryProvider;
   }
 
-  /**
-   * 1. this can ONLY support 1 bridge service at a time 2. TODO: support multiple bridge services
-   * at a time based on the data type
-   *
-   * @throws Exception
-   */
+  // TODO: 1. support multiple bridge services at a time
   @Override
   public SearchQueryService doSearch(SearchQuery searchQuery) throws Exception {
     return (new ElasticSearchQuery(

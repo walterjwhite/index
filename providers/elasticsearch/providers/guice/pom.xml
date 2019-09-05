@@ -4,7 +4,7 @@
   <parent>
     <groupId>com.walterjwhite.java.modules.index.providers.elasticsearch</groupId>
     <artifactId>providers</artifactId>
-    <version>0.0.15-SNAPSHOT</version>
+    <version>0.0.17-SNAPSHOT</version>
   </parent>
   <groupId>com.walterjwhite.java.modules.index.providers.elasticsearch.providers</groupId>
   <artifactId>guice</artifactId>
@@ -15,12 +15,12 @@
     <dependency>
       <groupId>com.walterjwhite.java.infrastructure.inject.providers</groupId>
       <artifactId>guice</artifactId>
-      <version>0.0.15-SNAPSHOT</version>
+      <version>0.0.17-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>com.walterjwhite.java.modules.encryption.providers</groupId>
       <artifactId>guice</artifactId>
-      <version>0.0.15-SNAPSHOT</version>
+      <version>0.0.17-SNAPSHOT</version>
     </dependency>
     <!--<dependency>-->
     <!--<groupId>com.walterjwhite.java.infrastructure.datastore.modules.jpa-event-listener.providers</groupId>-->

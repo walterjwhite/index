@@ -32,11 +32,7 @@ public abstract class AbstractIndexMaintenanceService
 
   protected abstract void doCreate(Index index) throws IOException;
 
-  /**
-   * Create the "default" index.
-   *
-   * @throws IOException
-   */
+  // Create the "default" index.
   @Override
   public void create() throws IOException {
     create(lookupDefault());
@@ -49,11 +45,7 @@ public abstract class AbstractIndexMaintenanceService
 
   protected abstract void doDelete(Index index) throws IOException;
 
-  /**
-   * Delete the "default" index.
-   *
-   * @throws IOException
-   */
+  // Delete the "default" index.
   @Override
   public void delete() throws IOException {
     delete(lookupDefault());
