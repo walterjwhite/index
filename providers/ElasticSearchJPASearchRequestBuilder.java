@@ -24,8 +24,8 @@ public class ElasticSearchJPASearchRequestBuilder extends AbstractElasticSearchA
   public ElasticSearchJPASearchRequestBuilder searchTypes(
       Class<? extends AbstractEntity_>... entityClasses) {
     if (searchRequestBuilder != null)
-      throw (new IllegalStateException(
-          "SearchRequestBuilder was already initialized, check your code, only initialize it once."));
+      throw new IllegalStateException(
+          "SearchRequestBuilder was already initialized, check your code, only initialize it once.");
 
     for (Class<? extends AbstractEntity_> entityClass : entityClasses)
       searchEntityTypes.add(entityClass);
@@ -53,7 +53,7 @@ public class ElasticSearchJPASearchRequestBuilder extends AbstractElasticSearchA
       Object value, final Attribute attribute) {
     if (attribute == null) {
       // iterate through types and add all of them
-      throw (new UnsupportedOperationException("how to search multiple fields?"));
+      throw new UnsupportedOperationException("how to search multiple fields?");
     } else {
       // if this is a single attribute, no problem but how do we do multiple?
       searchRequestBuilder.setQuery(QueryBuilders.fuzzyQuery(attribute.getName(), value));
@@ -64,8 +64,8 @@ public class ElasticSearchJPASearchRequestBuilder extends AbstractElasticSearchA
 
   public SearchResponse doSearch() {
     if (searchRequestBuilder == null)
-      throw (new IllegalStateException(
-          "SearchRequestBuilder was not initialized, please specify an index(es)"));
+      throw new IllegalStateException(
+          "SearchRequestBuilder was not initialized, please specify an index(es)");
 
     // set some defaults
     // timeout

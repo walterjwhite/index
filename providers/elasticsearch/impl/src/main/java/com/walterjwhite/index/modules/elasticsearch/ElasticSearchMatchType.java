@@ -50,6 +50,6 @@ public enum ElasticSearchMatchType {
       if (elasticSearchMatchType.getMatchType().equals(matchType)) return elasticSearchMatchType;
     }
 
-    throw (new UnsupportedOperationException("Not yet supported." + matchType));
+    throw new UnsupportedOperationException("Not yet supported." + matchType);
   }
 }

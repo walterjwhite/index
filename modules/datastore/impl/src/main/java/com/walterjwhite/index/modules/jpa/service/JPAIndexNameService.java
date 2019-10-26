@@ -17,7 +17,7 @@ public class JPAIndexNameService
     try {
       return (Class<? extends AbstractEntity>) Class.forName(entityTypeString);
     } catch (ClassNotFoundException e) {
-      throw (new IllegalStateException("Unable to map entity class", e));
+      throw new IllegalStateException("Unable to map entity class", e);
     }
   }
 

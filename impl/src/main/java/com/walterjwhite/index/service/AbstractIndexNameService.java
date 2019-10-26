@@ -47,7 +47,7 @@
 //
 //      return (indexName);
 //    } catch (IOException | NoSuchAlgorithmException e) {
-//      throw (new IllegalStateException("Unable to determine index name", e));
+//      throw new IllegalStateException("Unable to determine index name", e));
 //    }
 //  }
 //
@@ -61,7 +61,7 @@
 //    //      }
 //    //    }
 //    if (!indexNameMap.containsKey(indexName))
-//      throw (new IllegalStateException("Index Name:" + indexName + " is not mapped!"));
+//      throw new IllegalStateException("Index Name:" + indexName + " is not mapped!"));
 //
 //    return (indexNameMap.get(indexName));
 //  }
