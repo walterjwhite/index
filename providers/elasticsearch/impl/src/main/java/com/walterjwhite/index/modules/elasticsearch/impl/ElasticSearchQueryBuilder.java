@@ -4,7 +4,7 @@ import com.walterjwhite.index.api.model.query.Conjunction;
 import com.walterjwhite.index.api.model.query.predicate.AttributePredicate;
 import com.walterjwhite.index.api.model.query.predicate.GroupPredicate;
 import com.walterjwhite.index.api.model.query.predicate.Predicate;
-import com.walterjwhite.index.modules.elasticsearch.ElasticSearchMatchType;
+import com.walterjwhite.index.modules.elasticsearch.property.ElasticSearchMatchType;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;

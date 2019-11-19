@@ -11,7 +11,7 @@
   <packaging>pom</packaging>
   <name>index - providers - parent</name>
   <modules>
-    <!--    <module>elasticsearch</module>-->
+    <module>elasticsearch</module>
   </modules>
   <dependencies>
     <dependency>

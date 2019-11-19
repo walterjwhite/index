@@ -1,4 +1,4 @@
-package com.walterjwhite.index.modules.elasticsearch;
+package com.walterjwhite.index.modules.elasticsearch.property;
 
 import com.walterjwhite.index.api.model.query.MatchType;
 import com.walterjwhite.index.api.model.query.predicate.AttributePredicate;

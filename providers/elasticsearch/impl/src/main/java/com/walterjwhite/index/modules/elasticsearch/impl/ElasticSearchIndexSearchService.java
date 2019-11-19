@@ -8,20 +8,20 @@ import com.walterjwhite.index.api.service.SearchQueryService;
 import com.walterjwhite.index.service.AbstractIndexSearchService;
 import javax.inject.Inject;
 import javax.inject.Provider;
-import org.elasticsearch.client.transport.TransportClient;
+import org.elasticsearch.client.RestHighLevelClient;
 
 public class ElasticSearchIndexSearchService extends AbstractIndexSearchService {
-  protected final TransportClient transportClient;
+  protected final RestHighLevelClient restHighLevelClient;
   protected final Provider<Repository> repositoryProvider;
 
   @Inject
   public ElasticSearchIndexSearchService(
       IndexNameService indexNameService,
       IndexBridgeService indexBridgeService,
-      TransportClient transportClient,
+      RestHighLevelClient restHighLevelClient,
       Provider<Repository> repositoryProvider) {
     super(indexBridgeService, indexNameService, repositoryProvider);
-    this.transportClient = transportClient;
+    this.restHighLevelClient = restHighLevelClient;
     this.repositoryProvider = repositoryProvider;
   }
 
@@ -29,6 +29,6 @@ public class ElasticSearchIndexSearchService extends AbstractIndexSearchService 
   @Override
   public SearchQueryService doSearch(SearchQuery searchQuery) throws Exception {
     return (new ElasticSearchQuery(
-        transportClient, searchQuery, indexNameService, repositoryProvider));
+        restHighLevelClient, searchQuery, indexNameService, repositoryProvider));
   }
 }

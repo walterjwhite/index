@@ -7,7 +7,6 @@ import java.util.Set;
 import javax.inject.Inject;
 import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.action.search.SearchResponse;
-import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.index.query.QueryBuilders;
 
 public class ElasticSearchJPASearchRequestBuilder extends AbstractElasticSearchAware {
@@ -16,8 +15,8 @@ public class ElasticSearchJPASearchRequestBuilder extends AbstractElasticSearchA
   protected Set<Class<? extends AbstractEntity_>> searchEntityTypes;
 
   @Inject
-  public ElasticSearchJPASearchRequestBuilder(TransportClient transportClient) {
-    super(transportClient);
+  public ElasticSearchJPASearchRequestBuilder(RestHighLevelClient restHighLevelClient) {
+    super(restHighLevelClient);
     searchEntityTypes = new HashSet<>();
   }
 
@@ -30,7 +29,7 @@ public class ElasticSearchJPASearchRequestBuilder extends AbstractElasticSearchA
     for (Class<? extends AbstractEntity_> entityClass : entityClasses)
       searchEntityTypes.add(entityClass);
 
-    searchRequestBuilder = transportClient.prepareSearch(getIndexes(entityClasses));
+    searchRequestBuilder = restHighLevelClient.prepareSearch(getIndexes(entityClasses));
     searchRequestBuilder.setTypes(getTypes(entityClasses));
     return (this);
   }
